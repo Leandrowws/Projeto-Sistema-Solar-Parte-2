@@ -31,7 +31,7 @@ class CorpoCeleste:
     @staticmethod
     def api_dict(dados: dict) -> "CorpoCeleste":
         """Constroi um CorpoCeleste a partir do dicionario bruto retornado
-        pela API (ou pelo arquivo JSON salvo localmente, no caso do Nivel 2)."""
+        pela API"""
 
         massa_info = dados.get("mass") or {}
         massa_kg = 0.0

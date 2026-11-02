@@ -6,6 +6,7 @@ fica em src/sistema.py (SistemaMissoes).
 
 from src.sistema import SistemaMissoes
 from src.missao.planejador_rota import imprimir_resultado
+from src.missao.planejador_luas import imprimir_resultado as imprimir_resultado_luas
 
 CAMINHO_PADRAO_DADOS = "dados/exemplo_bodies.json"
 
@@ -26,6 +27,7 @@ def exibir_menu() -> None:
     print(" 10  - Ver estatisticas da Trie (Nós visitados / Total de Nós)")
     print(" 11  - Ver estatisticas da Arvore B (Altura / Divisões)")
     print(" 12 - Planejar missao (algoritmo guloso)")
+    print(" 13 - Planejar luas (programacao dinamica)")
     print(" 0  - Sair")
     print("=" * 55)
 
@@ -114,6 +116,13 @@ def main() -> None:
                 imprimir_resultado(resultado)
             except ValueError:
                 print("Erro: informe um numero valido.")
+
+        elif opcao == "13":
+            try:
+                x = int(input("Quantidade exata de luas a visitar: ").strip())
+                imprimir_resultado_luas(sistema.planejar_luas(x))
+            except ValueError as e:
+                print(f"Erro: {e}")
 
         elif opcao == "0":
             print("Encerrando o sistema.")

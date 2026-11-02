@@ -18,6 +18,12 @@ from src.api.solar_system_client import (
     carregar_corpos_de_arquivo,
 )
 
+from src.missao.planejador_luas import (
+    selecionar_planetas, minimo_planetas_para_luas,
+    comparar_cenarios, ResultadoLuas)
+
+
+
 from src.estruturas.tabela_hash import TabelaHash
 from src.estruturas.trie import Trie
 from src.estruturas.arvore_b import ArvoreB
@@ -42,7 +48,7 @@ class SistemaMissoes:
     def carregar_de_arquivo(self, caminho_json: str) -> int:
         corpos = carregar_corpos_de_arquivo(caminho_json)
         for corpo in corpos:
-            self._tabela.indexar(corpo)
+            self._indexar(corpo)
         return len(corpos)
 
     def carregar_da_api(self) -> int:
@@ -102,4 +108,14 @@ class SistemaMissoes:
     # ------------------------------------------------------------------
     def planejar_rota(self, combustivel_milhoes_km: float, custo_parada_milhoes_km: float = 0.0) -> ResultadoRota:
         return _executar_planejamento_rota(self._tabela.todos_valores(), combustivel_milhoes_km, custo_parada_milhoes_km)
+
+    # ------------------------------------------------------------------
+    # Planejamento por programacao dinamica (troco 0/1 com planetas)
+    # ------------------------------------------------------------------
+    def planejar_luas(self, x: int) -> ResultadoLuas:
+        planetas = selecionar_planetas(self._tabela.todos_valores())
+        return minimo_planetas_para_luas(planetas, x)
+
+    def comparar_cenarios_luas(self, alvos: List[int]) -> None:
+        comparar_cenarios(selecionar_planetas(self._tabela.todos_valores()), alvos)
 
