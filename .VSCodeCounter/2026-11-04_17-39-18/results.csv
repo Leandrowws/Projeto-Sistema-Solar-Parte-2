@@ -1,0 +1,20 @@
+"filename", "language", "Python", "pip requirements", "JSON", "comment", "blank", "total"
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\dados\exemplo_bodies.json", "JSON", 0, 0, 130, 0, 1, 131
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\main.py", "Python", 114, 0, 0, 5, 29, 148
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\requirements.txt", "pip requirements", 0, 1, 0, 0, 1, 2
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\__init__.py", "Python", 0, 0, 0, 0, 1, 1
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\api\__init__.py", "Python", 0, 0, 0, 0, 1, 1
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\api\solar_system_client.py", "Python", 29, 0, 0, 9, 16, 54
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\__init__.py", "Python", 0, 0, 0, 0, 1, 1
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\arvore_b.py", "Python", 161, 0, 0, 40, 41, 242
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\interfaces.py", "Python", 18, 0, 0, 9, 9, 36
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\tabela_hash.py", "Python", 74, 0, 0, 26, 22, 122
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\trie.py", "Python", 100, 0, 0, 32, 28, 160
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\__init__.py", "Python", 0, 0, 0, 0, 1, 1
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\planejador_luas.py", "Python", 69, 0, 0, 16, 23, 108
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\planejador_rota_a_estrela.py", "Python", 122, 0, 0, 22, 30, 174
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\planejador_rota_gulosa.py", "Python", 139, 0, 0, 26, 32, 197
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\modelos\__init__.py", "Python", 0, 0, 0, 0, 1, 1
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\modelos\corpo_celeste.py", "Python", 42, 0, 0, 10, 12, 64
+"c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\sistema.py", "Python", 66, 0, 0, 34, 32, 132
+"Total", "-", 934, 1, 130, 229, 281, 1575

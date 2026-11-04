@@ -5,8 +5,10 @@ fica em src/sistema.py (SistemaMissoes).
 """
 
 from src.sistema import SistemaMissoes
-from src.missao.planejador_rota import imprimir_resultado
+from src.missao.planejador_rota_gulosa import imprimir_resultado
 from src.missao.planejador_luas import imprimir_resultado as imprimir_resultado_luas
+from src.missao.planejador_rota_a_estrela import imprimir_resultado as imprimir_resultado_volta
+
 
 CAMINHO_PADRAO_DADOS = "dados/exemplo_bodies.json"
 
@@ -28,6 +30,7 @@ def exibir_menu() -> None:
     print(" 11  - Ver estatisticas da Arvore B (Altura / Divisões)")
     print(" 12 - Planejar missao (algoritmo guloso)")
     print(" 13 - Planejar luas (programacao dinamica)")
+    print(" 14 - Voltar para a Terra (A*)")
     print(" 0  - Sair")
     print("=" * 55)
 
@@ -121,6 +124,14 @@ def main() -> None:
             try:
                 x = int(input("Quantidade exata de luas a visitar: ").strip())
                 imprimir_resultado_luas(sistema.planejar_luas(x))
+            except ValueError as e:
+                print(f"Erro: {e}")
+
+        elif opcao == "14":
+            try:
+                origem = input("Astro de origem (ex: Plutao, Titan, Marte): ").strip()
+                criterio = input("Minimizar [preco/tempo]: ").strip().lower()
+                imprimir_resultado_volta(sistema.planejar_volta(origem, criterio))
             except ValueError as e:
                 print(f"Erro: {e}")
 

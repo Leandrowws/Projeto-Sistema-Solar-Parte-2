@@ -8,10 +8,12 @@ nunca diretamente com TabelaHash ou com o cliente da API.
 
 from typing import List, Optional
 
-from src.missao.planejador_rota import (
+from src.missao.planejador_rota_gulosa import (
     planejar_rota as _executar_planejamento_rota,
     ResultadoRota,
 )
+
+from src.missao.planejador_rota_a_estrela import (arestas, montar_grafo, busca_a_estrela)
 
 from src.api.solar_system_client import (
     buscar_corpos_da_api,
@@ -118,4 +120,12 @@ class SistemaMissoes:
 
     def comparar_cenarios_luas(self, alvos: List[int]) -> None:
         comparar_cenarios(selecionar_planetas(self._tabela.todos_valores()), alvos)
+
+    # ------------------------------------------------------------------
+    # Busca (A*)
+    # ------------------------------------------------------------------
+
+    def planejar_volta(self, origem: str, criterio: str):
+        return busca_a_estrela(montar_grafo(arestas), origem, criterio)
+
 

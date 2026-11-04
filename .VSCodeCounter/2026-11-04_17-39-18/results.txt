@@ -1,0 +1,52 @@
+Date : 2026-11-04 17:39:18
+Directory : c:\Users\Usuario\Documents\Projeto-Sistema-Solar
+Total : 18 files,  1065 codes, 229 comments, 281 blanks, all 1575 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Python           |         16 |        934 |        229 |        279 |      1,442 |
+| JSON             |          1 |        130 |          0 |          1 |        131 |
+| pip requirements |          1 |          1 |          0 |          1 |          2 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                     | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                        |         18 |      1,065 |        229 |        281 |      1,575 |
+| . (Files)                                                                                |          2 |        115 |          5 |         30 |        150 |
+| dados                                                                                    |          1 |        130 |          0 |          1 |        131 |
+| src                                                                                      |         15 |        820 |        224 |        250 |      1,294 |
+| src (Files)                                                                              |          2 |         66 |         34 |         33 |        133 |
+| src\api                                                                                  |          2 |         29 |          9 |         17 |         55 |
+| src\estruturas                                                                           |          5 |        353 |        107 |        101 |        561 |
+| src\missao                                                                               |          4 |        330 |         64 |         86 |        480 |
+| src\modelos                                                                              |          2 |         42 |         10 |         13 |         65 |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                 | language         | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\dados\exemplo_bodies.json               | JSON             |        130 |          0 |          1 |        131 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\main.py                                 | Python           |        114 |          5 |         29 |        148 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\requirements.txt                        | pip requirements |          1 |          0 |          1 |          2 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\__init__.py                         | Python           |          0 |          0 |          1 |          1 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\api\__init__.py                     | Python           |          0 |          0 |          1 |          1 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\api\solar_system_client.py          | Python           |         29 |          9 |         16 |         54 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\__init__.py              | Python           |          0 |          0 |          1 |          1 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\arvore_b.py              | Python           |        161 |         40 |         41 |        242 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\interfaces.py            | Python           |         18 |          9 |          9 |         36 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\tabela_hash.py           | Python           |         74 |         26 |         22 |        122 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\estruturas\trie.py                  | Python           |        100 |         32 |         28 |        160 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\__init__.py                  | Python           |          0 |          0 |          1 |          1 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\planejador_luas.py           | Python           |         69 |         16 |         23 |        108 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\planejador_rota_a_estrela.py | Python           |        122 |         22 |         30 |        174 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\missao\planejador_rota_gulosa.py    | Python           |        139 |         26 |         32 |        197 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\modelos\__init__.py                 | Python           |          0 |          0 |          1 |          1 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\modelos\corpo_celeste.py            | Python           |         42 |         10 |         12 |         64 |
+| c:\Users\Usuario\Documents\Projeto-Sistema-Solar\src\sistema.py                          | Python           |         66 |         34 |         32 |        132 |
+| Total                                                                                    |                  |      1,065 |        229 |        281 |      1,575 |
++------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
