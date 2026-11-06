@@ -5,10 +5,10 @@ fica em src/sistema.py (SistemaMissoes).
 """
 
 from src.sistema import SistemaMissoes
-from src.missao.planejador_rota_a_estrela import imprimir_resultado
 from src.missao.planejador_luas import imprimir_resultado as imprimir_resultado_luas
 from src.missao.planejador_rota_a_estrela import imprimir_resultado as imprimir_resultado_volta
 from src.missao.fluxo_maximo import imprimir_resultado as imprimir_resultado_fluxo
+from src.missao.planejador_rota_gulosa import imprimir_resultado as imprimir_resultado_guloso
 
 CAMINHO_PADRAO_DADOS = "dados/exemplo_bodies.json"
 LIMITE_LUAS = 10_000   # a DP usa memoria proporcional a n * x
@@ -129,7 +129,7 @@ def main() -> None:
                     print("Erro: combustivel deve ser > 0 e custo de parada >= 0.")
                     continue
                 resultado = sistema.planejar_rota(combustivel, custo_parada)
-                imprimir_resultado(resultado)
+                imprimir_resultado_guloso(resultado)
             except ValueError:
                 print("Erro: informe um numero valido.")
 
