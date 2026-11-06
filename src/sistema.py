@@ -13,6 +13,10 @@ from src.missao.planejador_rota_gulosa import (
     ResultadoRota,
 )
 
+from src.missao.grafo_sistema_solar import arestas, montar_grafo
+from src.missao.planejador_rota_a_estrela import busca_a_estrela
+from src.missao.fluxo_maximo import fluxo_maximo
+
 from src.missao.planejador_rota_a_estrela import (arestas, montar_grafo, busca_a_estrela)
 
 from src.api.solar_system_client import (
@@ -128,4 +132,9 @@ class SistemaMissoes:
     def planejar_volta(self, origem: str, criterio: str):
         return busca_a_estrela(montar_grafo(arestas), origem, criterio)
 
+    # ------------------------------------------------------------------
+    # Fluxo maximo de carga (Edmonds-Karp)
+    # ------------------------------------------------------------------
+    def calcular_fluxo(self, origem: str, destino: str):
+        return fluxo_maximo(montar_grafo(arestas), origem, destino)
 

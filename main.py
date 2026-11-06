@@ -5,18 +5,19 @@ fica em src/sistema.py (SistemaMissoes).
 """
 
 from src.sistema import SistemaMissoes
-from src.missao.planejador_rota_gulosa import imprimir_resultado
+from src.missao.planejador_rota_a_estrela import imprimir_resultado
 from src.missao.planejador_luas import imprimir_resultado as imprimir_resultado_luas
 from src.missao.planejador_rota_a_estrela import imprimir_resultado as imprimir_resultado_volta
-
+from src.missao.fluxo_maximo import imprimir_resultado as imprimir_resultado_fluxo
 
 CAMINHO_PADRAO_DADOS = "dados/exemplo_bodies.json"
+LIMITE_LUAS = 10_000   # a DP usa memoria proporcional a n * x
 
 
 def exibir_menu() -> None:
-    print("\n" + "=" * 55)
+    print("\n" + "=" * 60)
     print("  SISTEMA DE PLANEJAMENTO DE MISSOES ESPACIAIS")
-    print("=" * 55)
+    print("=" * 60)
     print(" 1  - Carregar dados de arquivo local (.json)")
     print(" 2  - Carregar dados da API (requer SOLAR_API_KEY)")
     print(" 3  - Buscar corpo por ID")
@@ -26,13 +27,25 @@ def exibir_menu() -> None:
     print(" 7  - Filtrar por faixa de distancia (km)")
     print(" 8  - Listar ordenado por distancia")
     print(" 9  - Ver estatisticas da Tabela Hash (colisoes / fator de carga)")
-    print(" 10  - Ver estatisticas da Trie (Nós visitados / Total de Nós)")
-    print(" 11  - Ver estatisticas da Arvore B (Altura / Divisões)")
+    print(" 10 - Ver estatisticas da Trie (Nos visitados / Total de Nos)")
+    print(" 11 - Ver estatisticas da Arvore B (Altura / Divisoes)")
     print(" 12 - Planejar missao (algoritmo guloso)")
     print(" 13 - Planejar luas (programacao dinamica)")
-    print(" 14 - Voltar para a Terra (A*)")
+    print(" 14 - Voltar para a Terra (A*: escolher preco ou tempo)")
+    print(" 15 - Fluxo maximo de carga (Edmonds-Karp + corte minimo)")
     print(" 0  - Sair")
-    print("=" * 55)
+    print("=" * 60)
+
+
+def ler_lista(texto: str) -> list:
+    """'Terra, Lua' -> ['Terra', 'Lua']"""
+    return [parte.strip() for parte in texto.split(",") if parte.strip()]
+
+
+def ler_origens_destinos():
+    origens = ler_lista(input("Origem(ns), separadas por virgula (ex: Terra,Lua): "))
+    destinos = ler_lista(input("Destino(s), separados por virgula (ex: Marte,Titan): "))
+    return origens, destinos
 
 
 def imprimir_lista(corpos) -> None:
@@ -105,8 +118,8 @@ def main() -> None:
             sistema.imprimir_estatisticas_trie()
 
         elif opcao == "11":
-                    print(f"Quantidade de corpos carregados: {sistema.quantidade_corpos()}")
-                    sistema.imprimir_estatisticas_arvore_b()
+            print(f"Quantidade de corpos carregados: {sistema.quantidade_corpos()}")
+            sistema.imprimir_estatisticas_arvore_b()
 
         elif opcao == "12":
             try:
@@ -121,19 +134,34 @@ def main() -> None:
                 print("Erro: informe um numero valido.")
 
         elif opcao == "13":
+            if sistema.quantidade_corpos() == 0:
+                print("Erro: carregue os dados primeiro (opcao 1 ou 2).")
+                continue
             try:
                 x = int(input("Quantidade exata de luas a visitar: ").strip())
+                if x > LIMITE_LUAS:
+                    print(f"Erro: o limite e {LIMITE_LUAS} luas.")
+                    continue
                 imprimir_resultado_luas(sistema.planejar_luas(x))
             except ValueError as e:
                 print(f"Erro: {e}")
 
         elif opcao == "14":
             try:
-                origem = input("Astro de origem (ex: Plutao, Titan, Marte): ").strip()
+                origem = input("Astro de origem (ex: Plutao, Titan, Marte): ").strip().capitalize()
                 criterio = input("Minimizar [preco/tempo]: ").strip().lower()
                 imprimir_resultado_volta(sistema.planejar_volta(origem, criterio))
             except ValueError as e:
                 print(f"Erro: {e}")
+
+        elif opcao == "15":
+            try:
+                origem = input("Astro de origem (ex: Terra): ").strip().capitalize()
+                destino = input("Astro de destino (ex: Saturno): ").strip().capitalize()
+                imprimir_resultado_fluxo(sistema.calcular_fluxo(origem, destino))
+            except ValueError as e:
+                print(f"Erro: {e}")
+
 
         elif opcao == "0":
             print("Encerrando o sistema.")
